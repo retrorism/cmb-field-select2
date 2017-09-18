@@ -82,6 +82,9 @@ class PW_CMB2_Field_Select2 {
 	 */
 	public function get_pw_multiselect_options( $field_escaped_value = array(), $field_type_object ) {
 		$options = (array) $field_type_object->field->options();
+		
+		// When a single value leads to this variable being a string, cast it as an array
+		$field_escaped_value = (array) $field_escaped_value;
 
 		// If we have selected items, we need to preserve their order
 		if ( ! empty( $field_escaped_value ) ) {
